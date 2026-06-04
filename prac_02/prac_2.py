@@ -1,22 +1,20 @@
 
 def main():
-    """Function docstring"""
-    # statements...
+    password = get_password()
+    password_hidden(password)
 
 def get_password():
-    global password
+    min_length = 8
     password = input("Enter a password: ")
 
     while len(password) < min_length:
         print("Password is too short.")
         password = input("Enter a password: ")
 
-def password_hidden():
-    print("*" * len(password))
+    return password
 
-min_length = 8
-get_password()
-password_hidden()
+def password_hidden(password):
+    print("*" * len(password))
 
 main()
 
