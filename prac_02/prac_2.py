@@ -1,20 +1,24 @@
-
 def main():
-    password = get_password()
-    password_hidden(password)
+    password_activity()
 
-def get_password():
-    min_length = 8
-    password = input("Enter a password: ")
+def password_activity():
+    """Runs the password activity."""
 
-    while len(password) < min_length:
-        print("Password is too short.")
+    def get_password():
+        min_length = 8
         password = input("Enter a password: ")
 
-    return password
+        while len(password) < min_length:
+            print("Password is too short.")
+            password = input("Enter a password: ")
 
-def password_hidden(password):
-    print("*" * len(password))
+        return password
+
+    def password_hidden(password):
+        print("*" * len(password))
+
+    user_password = get_password()
+    password_hidden(user_password)
 
 main()
 
