@@ -1,7 +1,6 @@
 """"""""" PRAC 2 """""""""
 from random import random
 
-
 def main():
     choice = menu_display()
     menu_selection(choice)
