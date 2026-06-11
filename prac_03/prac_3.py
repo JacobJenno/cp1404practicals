@@ -76,7 +76,7 @@ def random_numbers_q():
 
 # Capitalist Conrad
 def capitalist_conrad_q():
-
+    print("\033[4mCapitalist Conrad\033[0m")
     starting_price = float(input("How much to start with investing? >>>").upper())
     digit_count_price = len(str(starting_price))
     days_tracked = int(input("And how long would you like to invest? >>>").upper())
