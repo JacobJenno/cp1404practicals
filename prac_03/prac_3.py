@@ -1,4 +1,5 @@
 import time
+import random
 
 def main():
     choice = menu_display()
@@ -50,18 +51,59 @@ def menu_selection(choice):
             time.sleep(2)
             choice = menu_display()
 
-
 # String Formatting
 def string_formatting_q():
-    print("test")
+
+    end_of_loop = 10
+    last_value = 2**end_of_loop
+    digit_count = len(str(abs(end_of_loop+1)))
+    digit_count2 = len(str(last_value))
+
+    for i in range (end_of_loop+1):     # from 0 to 10
+        answer = 2**i
+        print(f"2 ^ {i:^{digit_count}} is {answer:>{digit_count2}}")
+
+    time.sleep(5) # Gives user time to read output
 
 # Random Numbers
 def random_numbers_q():
-    print("test")
+
+    print(random.randint(5, 20))                    # line 1 (integer increment, low and high inclusive)
+    print(random.randrange(3, 10, 2))      # line 2 (step increment, low and high inclusive)
+    print(random.uniform(2.5, 5.5))                  # line 3 (random float between low and high)
+
+    time.sleep(5) # Gives user time to read output
 
 # Capitalist Conrad
 def capitalist_conrad_q():
-    print("test")
+
+    starting_price = float(input("How much to start with investing? >>>").upper())
+    digit_count_price = len(str(starting_price))
+    days_tracked = int(input("And how long would you like to invest? >>>").upper())
+    print("")
+    print(f"On day 1 price is ${starting_price:<{digit_count_price}.2f}")
+    print("...")
+    price = float(starting_price)
+
+    for days in range(days_tracked+1):
+        multiplier = float(capitalist_conrad_multiplier())
+        price = price*(1+multiplier)
+
+        if days == days_tracked -1:
+            digit_count_days = len(str(days))
+            digit_count_price = len(str(price))
+            print(f"On day {days:^{digit_count_days}} price is ${price:<{digit_count_price}.2f}")
+
+        elif days == days_tracked:
+            digit_count_days = len(str(days))
+            digit_count_price = len(str(price))
+            print(f"On day {days:^{digit_count_days}} price is ${price:<{digit_count_price}.2f}")
+
+def capitalist_conrad_multiplier():
+    profit  = random.uniform(0, 10)
+    loss    = random.uniform(0, -5)
+    multiplier = random.choice([profit,loss])/100       # Into scale value from percent
+    return multiplier
 
 # Exceptions
 def exceptions_q():
