@@ -22,7 +22,7 @@ while choice != "Q":
         print(f"Result: {fahrenheit:.2f} F")
     elif choice == "F":
         # TODO: Write this section to convert F to C and display the result
-        # Hint: celsius = 5 / 9 * (fahrenheit - 32)
+        # Hint: Celsius = 5 / 9 * (Fahrenheit - 32)
         # Remove the "pass" statement when you are done. It's a placeholder.
         fahrenheit = float(input("Fahrenheit: "))
         celsius = 5 / 9 * (fahrenheit - 32)
@@ -42,7 +42,7 @@ If sales are under $1,000, the user gets a 10% bonus.
 If sales are $1,000 or over, the bonus is 15%.  
 """
 print("\033[4mActivity 1: Sales Bonus\033[0m")
-MENU1 = """WELCOME TO THE SALES BONUS CALULCATOR!"""
+MENU1 = """WELCOME TO THE SALES BONUS CALCULATOR!"""
 print(MENU1)
 choice1 = input("Would you like to calculate bonus? (y/n) ").upper()
 while choice1 != "N":
