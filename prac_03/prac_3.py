@@ -14,7 +14,7 @@ def menu_display():
             4 - Exceptions to Complete 
             5 - Password Checker 
             6 - Files 
-            7 - File Size 
+            7 - File Size  
             Q - Quit (ends run)
                 """)
     choice = input(">>> ").upper()
