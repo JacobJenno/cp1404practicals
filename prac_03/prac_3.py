@@ -20,7 +20,7 @@ def menu_display():
     choice = input(">>> ").upper()
     return choice
 
-def  menu_selection(choice):
+def menu_selection(choice):
     while True:
         if choice == "1":
             string_formatting_q()
