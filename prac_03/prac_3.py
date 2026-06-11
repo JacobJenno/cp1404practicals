@@ -81,13 +81,18 @@ def capitalist_conrad_q():
     digit_count_price = len(str(starting_price))
     days_tracked = int(input("And how long would you like to invest? >>>").upper())
     print("")
-    print(f"On day 1 price is ${starting_price:<{digit_count_price}.2f}")
-    print("...")
+    print(f"Starting price is ${starting_price:<{digit_count_price}.2f}")
     price = float(starting_price)
 
     for days in range(days_tracked+1):
         multiplier = float(capitalist_conrad_multiplier())
         price = price*(1+multiplier)
+
+        if days == 1:
+            digit_count_days = len(str(days))
+            digit_count_price = len(str(price))
+            print(f"On day {days:^{digit_count_days}} price is ${price:<{digit_count_price}.2f}")
+            print("...")
 
         if days == days_tracked -1:
             digit_count_days = len(str(days))
