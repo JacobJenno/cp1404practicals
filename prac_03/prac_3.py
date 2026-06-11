@@ -83,20 +83,21 @@ def capitalist_conrad_q():
     print("")
     print(f"Starting price is ${starting_price:<{digit_count_price}.2f}")
     price = float(starting_price)
+    out_file = open("Trading_History.txt", 'w')
 
     for days in range(days_tracked+1):
         multiplier = float(capitalist_conrad_multiplier())
         price = price*(1+multiplier)
+        digit_count_days = len(str(days))
+        digit_count_price = len(str(price))
+        digit_count_days_tracked = len(str(days_tracked))
+        print(f"On day {days:^{digit_count_days_tracked}} price is ${price:<{digit_count_price}.2f}", file=out_file)
 
         if days == 1:
-            digit_count_days = len(str(days))
-            digit_count_price = len(str(price))
             print(f"On day {days:^{digit_count_days}} price is ${price:<{digit_count_price}.2f}")
             print("...")
 
         if days == days_tracked -1:
-            digit_count_days = len(str(days))
-            digit_count_price = len(str(price))
             print(f"On day {days:^{digit_count_days}} price is ${price:<{digit_count_price}.2f}")
 
         elif days == days_tracked:
@@ -104,10 +105,15 @@ def capitalist_conrad_q():
             digit_count_price = len(str(price))
             print(f"On day {days:^{digit_count_days}} price is ${price:<{digit_count_price}.2f}")
 
+    out_file.close()
+
 def capitalist_conrad_multiplier():
-    profit  = random.uniform(0, 10)
-    loss    = random.uniform(0, -5)
-    multiplier = random.choice([profit,loss])/100       # Into scale value from percent
+
+    profit  = random.uniform(0, 10)              # Scales between values for a profit (percent)
+    loss    = random.uniform(0, -5)                 # Scales between values for a loss (percent)
+    multiplier = random.choice([profit,loss])/100      # Into scale value from percent
+
+    # NOTE: Zero cannot appear and neither can upper limits as result is non-inclusive
     return multiplier
 
 # Exceptions
